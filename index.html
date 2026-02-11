@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="format-detection" content="telephone=no">
+
 <title>Pagar por transferencia</title>
 
 <style>
@@ -39,6 +41,8 @@ body {
   letter-spacing: 5px;
   margin-bottom: 22px;
   font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
 }
 
 /* BOTON */
@@ -69,14 +73,14 @@ button:hover {
   display: none;
 }
 
-/* INFO */
+/* INFO TITULAR / BANCO */
 .info {
-  margin-top: 16px;
-  font-size: 14px;
-  opacity: 0.9;
+  margin-top: 18px;
+  font-size: 16px; /* más grande pero elegante */
+  opacity: 0.95;
 }
 
-/* 📱 AJUSTES EXTRA PARA CELULARES PEQUEÑOS */
+/* AJUSTES EXTRA PARA CELULARES PEQUEÑOS */
 @media (max-width: 400px) {
   .number {
     font-size: 22px;
@@ -86,13 +90,16 @@ button:hover {
     padding: 18px;
     font-size: 18px;
   }
+  .info {
+    font-size: 17px;
+  }
 }
 </style>
 </head>
 <body>
 
 <div class="card">
-  <div class="number">4189 1400 5808 9276</div>
+  <div class="number">4189&nbsp;1400&nbsp;5808&nbsp;9276</div>
 
   <button onclick="copyNumber()">Copiar número</button>
 
@@ -119,5 +126,3 @@ function copyNumber() {
 
 </body>
 </html>
-
- 
