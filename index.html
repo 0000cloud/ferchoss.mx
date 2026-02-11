@@ -1,92 +1,109 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pagar por transferencia</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Pagar por transferencia</title>
 
-    .card {
-      background: #1e293b;
-      padding: 30px;
-      border-radius: 16px;
-      width: 90%;
-      max-width: 400px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.4);
-    }
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at top, #0f172a, #000000 70%);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
 
-    .number {
-      font-size: 22px;
-      letter-spacing: 3px;
-      margin-bottom: 20px;
-      word-spacing: 8px;
-    }
+/* TARJETA */
+.card {
+  background: rgba(17, 24, 39, 0.95);
+  padding: 32px;
+  border-radius: 18px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.05),
+    0 0 25px rgba(0,0,0,0.7),
+    0 0 18px rgba(255, 140, 0, 0.15);
+  border: 1px solid rgba(255,140,0,0.25);
+}
 
-    button {
-      background: #22c55e;
-      border: none;
-      padding: 14px 20px;
-      border-radius: 10px;
-      font-size: 16px;
-      color: white;
-      cursor: pointer;
-      width: 100%;
-    }
+/* NUMERO */
+.number {
+  font-size: 22px;
+  letter-spacing: 4px;
+  margin-bottom: 22px;
+  color: #fff;
+}
 
-    button:hover {
-      background: #16a34a;
-    }
+/* BOTON */
+button {
+  background: linear-gradient(90deg, #ff7a00, #ff9500);
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
+  transition: 0.2s ease;
+  box-shadow: 0 0 12px rgba(255,140,0,0.5);
+}
 
-    .info {
-      margin-top: 18px;
-      font-size: 14px;
-      opacity: 0.9;
-    }
+button:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 18px rgba(255,140,0,0.8);
+}
 
-    .copied {
-      margin-top: 10px;
-      font-size: 14px;
-      color: #4ade80;
-      display: none;
-    }
-  </style>
+/* MENSAJE COPIADO */
+.copied {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #ffb347;
+  display: none;
+}
+
+/* INFO */
+.info {
+  margin-top: 18px;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+</style>
 </head>
 <body>
 
-  <div class="card">
-    <div class="number" id="accountNumber">4189 1400 5808 9276</div>
+<div class="card">
+  <div class="number">4189 1400 5808 9276</div>
 
-    <button onclick="copyNumber()">Copiar número</button>
+  <button onclick="copyNumber()">Copiar número</button>
 
-    <div class="copied" id="copiedMsg">✅ Número copiado. Pégalo en tu app bancaria.</div>
-
-    <div class="info">Titular: Fernando Rivera</div>
-    <div class="info">Banco: Banorte</div>
+  <div class="copied" id="copiedMsg">
+    ✅ Número copiado. Pégalo en tu app bancaria.
   </div>
 
-  <script>
-    function copyNumber() {
-      const number = "4189140058089276";
-      navigator.clipboard.writeText(number).then(() => {
-        const msg = document.getElementById("copiedMsg");
-        msg.style.display = "block";
-        setTimeout(() => {
-          msg.style.display = "none";
-        }, 2500);
-      });
-    }
-  </script>
+  <div class="info">Titular: Fernando Rivera</div>
+  <div class="info">Banco: Banorte</div>
+</div>
+
+<script>
+function copyNumber() {
+  const number = "4189140058089276";
+  navigator.clipboard.writeText(number).then(() => {
+    const msg = document.getElementById("copiedMsg");
+    msg.style.display = "block";
+    setTimeout(() => {
+      msg.style.display = "none";
+    }, 2500);
+  });
+}
+</script>
 
 </body>
 </html>
